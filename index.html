@@ -201,6 +201,8 @@ h2 small i{margin-right:6px}
 .timeline li{align-items:center}
 .cicon i{font-size:20px}
 footer h5 i{color:#60a5fa;margin-right:6px}
+.more .arr{display:inline-block;transition:transform .2s}
+.more:hover .arr{transform:translateX(4px)}
 </style>
 </head>
 <body>
@@ -258,7 +260,7 @@ footer h5 i{color:#60a5fa;margin-right:6px}
         <h4>Beyond Best Samples: Reliability-Aware QUBO Benchmarking for Policy-Constrained Energy Dispatch</h4>
         <p>專題完成後的延伸研究。在 311 個變數的案例比較 GPU 退火、Fujitsu 數位退火與傳統啟發式方法，並在 24 個變數的案例比較 D-Wave 量子退火與 QAOA，發現只看單次最佳解會高估不穩定的方法，因此提出<strong>把可行率納入評估的基準</strong>。我是唯一的學生作者。</p>
         <div class="chips"><span>QUBO</span><span>D-Wave</span><span>Fujitsu DA3</span><span>CGA</span><span>QAOA</span></div>
-        <a class="more" href="papers/qce2026.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i>&nbsp;閱讀論文全文</a>
+        <a class="more" href="papers/qce2026.pdf" target="_blank" rel="noopener">閱讀論文全文 <span class="arr">→</span></a>
       </div>
     </article>
     <article class="proj">
@@ -268,7 +270,7 @@ footer h5 i{color:#60a5fa;margin-right:6px}
         <h4>QUBO-Based Multi-Objective Energy Dispatch Optimization for Taiwan’s Power System</h4>
         <p>實務專題。把台灣年度發電配置建構成多目標 QUBO 模型，在成本、碳排與供電穩定之間求解，並提出 <strong>Bounded-Slack 機制</strong>放寬供需限制；比較 GPU 退火、模擬退火、SQA 與 QAOA 等方法，於日本東京發表。</p>
         <div class="chips"><span>QUBO</span><span>PyQUBO</span><span>CGA</span><span>SA / SQA</span><span>Qiskit QAOA</span></div>
-        <a class="more" href="papers/aqc2026-poster.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-image" aria-hidden="true"></i>&nbsp;查看海報</a>
+        <a class="more" href="papers/aqc2026-poster.pdf" target="_blank" rel="noopener">查看海報 <span class="arr">→</span></a>
       </div>
     </article>
     <article class="proj">
