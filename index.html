@@ -45,6 +45,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px
 .admit svg{flex:none;width:26px;height:26px;color:var(--blue-d)}
 .admit small{display:block;font-size:13px;color:var(--mute);line-height:1.3}
 .admit b{display:block;color:var(--head);font-size:16px;line-height:1.45}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.badges .badge{margin-bottom:0}
+.badge.alt{background:#fff;color:var(--blue-d);border:1.5px solid #bfd4f6;box-shadow:0 0 14px rgba(59,130,246,.18)}
 .school{color:var(--blue-d);font-weight:800;font-size:clamp(20px,2.4vw,28px);margin-bottom:10px;line-height:1.4}
 h1{margin:0;font-weight:900;font-size:clamp(46px,7vw,72px);line-height:1.08;color:var(--head);letter-spacing:1px}
 h1 span{display:block;font-family:"Inter",sans-serif;font-weight:300;font-size:clamp(24px,3.2vw,36px);color:var(--mute);letter-spacing:0;margin-top:6px}
@@ -183,7 +186,7 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
 
 <header class="hero" id="top"><span class="blob b1"></span><span class="blob b2"></span><div class="wrap">
   <div>
-    <div class="badge seq" style="animation-delay:0s">IEEE QCE 2026 Author</div>
+    <div class="badges seq" style="animation-delay:0s"><span class="badge">IEEE QCE 2026 Author</span><span class="badge alt">AQC 2026 Poster・Tokyo</span></div>
     <div class="school seq" style="animation-delay:0.08s">國立屏東大學 資訊工程學系</div>
     <h1 class="seq" style="animation-delay:0.16s">吳承祐<span>Cheng-Yu Wu</span></h1>
     <p class="subtitle seq" style="animation-delay:0.26s">Undergraduate Researcher in <strong>Quantum &amp; Combinatorial Optimization</strong></p>
