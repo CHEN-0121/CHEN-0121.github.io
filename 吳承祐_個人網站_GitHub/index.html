@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="吳承祐 Cheng-Yu Wu｜國立屏東大學資訊工程學系｜量子與組合最佳化研究">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>吳承祐 Cheng-Yu Wu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/*
+VOICE: 乾淨、明亮的學生研究作品集，比照學長網站的版型
+IDEA: 研究作品集；首頁大名字加照片，下面依序是關於我、成績、研究、經歷
+PICTURE: 首頁右側大張照片，左側姓名、學校與按鈕
+COLOUR and TYPE: 淺灰藍底 #f8fafc、深石板色文字、亮藍 #3b82f6 點綴；Inter 加 Noto Sans TC
+LAYOUT: 置頂導覽、首頁兩欄、白色圓角卡片，手機改單欄
+*/
+:root{color-scheme:light;--bg:#f8fafc;--hero1:#eef4ff;--hero2:#f8fafc;--ink:#334155;--head:#0f172a;--mute:#64748b;--line:#e2e8f0;--blue:#3b82f6;--blue-d:#2563eb;--blue-l:#eff6ff;--card:#fff}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 "Inter","Noto Sans TC",sans-serif;overflow-x:clip}
+a{color:var(--blue-d)}
+.wrap{max-width:1140px;margin:0 auto}
+section{padding:clamp(56px,8vw,96px) max(5vw,18px)}
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(5vw,18px);flex-wrap:wrap}
+.logo{font-weight:800;font-size:22px;color:var(--head);text-decoration:none}
+.links{display:flex;gap:2px;flex-wrap:wrap}
+.links a{color:var(--ink);text-decoration:none;font-weight:500;font-size:15px;padding:8px 12px;border-radius:8px}
+.links a:hover,.links a:focus-visible{background:var(--blue-l);color:var(--blue-d);outline:none}
+.hero{background:radial-gradient(circle at 0% 0%,var(--hero1),var(--hero2) 70%);padding:clamp(48px,8vw,104px) max(5vw,18px);border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(28px,6vw,80px);align-items:center}
+.badge{display:inline-block;background:var(--blue);color:#fff;font-weight:700;font-size:14px;padding:6px 16px;border-radius:50px;box-shadow:0 0 18px rgba(59,130,246,.35);margin-bottom:20px}
+.school{color:var(--blue-d);font-weight:800;font-size:clamp(20px,2.4vw,28px);margin-bottom:10px;line-height:1.4}
+h1{margin:0;font-weight:900;font-size:clamp(46px,7vw,72px);line-height:1.08;color:var(--head);letter-spacing:1px}
+h1 span{display:block;font-family:"Inter",sans-serif;font-weight:300;font-size:clamp(24px,3.2vw,36px);color:var(--mute);letter-spacing:0;margin-top:6px}
+.subtitle{font-weight:300;font-size:clamp(18px,2vw,22px);color:var(--ink);margin:22px 0 0;line-height:1.6}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 26px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--blue);color:#fff;box-shadow:0 8px 20px -6px rgba(59,130,246,.55)}
+.btn.outline{border:2px solid var(--blue);color:var(--blue-d);background:#fff}
+.btn:focus-visible{outline:3px solid var(--head);outline-offset:2px}
+.photo{justify-self:center;width:min(100%,330px)}
+.photo img{display:block;width:100%;aspect-ratio:320/449;object-fit:cover;border-radius:20px;border:1px solid var(--line);box-shadow:0 30px 60px -12px rgba(15,23,42,.28)}
+h2{margin:0 0 36px;font-size:clamp(30px,3.6vw,40px);font-weight:700;color:var(--head);line-height:1.2}
+h2 small{display:block;font-size:15px;font-weight:600;color:var(--blue);letter-spacing:.5px;margin-bottom:8px}
+.about{background:var(--card);border-radius:24px;padding:clamp(24px,4vw,48px);box-shadow:0 10px 30px -15px rgba(15,23,42,.12);border:1px solid var(--line)}
+.about p{margin:0 0 16px;font-size:17px}.about p:last-child{margin:0}
+.about strong{color:var(--head)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-bottom:44px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 16px;text-align:center}
+.stat .n{font-weight:800;font-size:clamp(28px,3.4vw,40px);color:var(--blue-d);line-height:1.2;white-space:nowrap}
+.stat .l{color:var(--mute);font-size:15px;margin-top:4px}
+h3{font-size:22px;color:var(--head);margin:0 0 18px}
+.courses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.course{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+.course .zh{font-weight:700;color:var(--head);font-size:17px;line-height:1.4}
+.course .en{font-size:13px;color:var(--mute);line-height:1.4}
+.course .s{font-weight:800;font-size:44px;color:var(--head);line-height:1}
+.course .s small{font-size:15px;color:var(--mute);font-weight:500;margin-left:4px}
+.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 30px -18px rgba(15,23,42,.18)}
+.proj .img{height:190px;background:var(--blue-l) center top/cover no-repeat;border-bottom:1px solid var(--line)}
+.proj .img.blank{display:flex;align-items:center;justify-content:center;color:var(--blue-d);font-weight:800;font-size:30px;background:linear-gradient(135deg,#eff6ff,#e0ecff)}
+.proj .body{padding:22px;display:flex;flex-direction:column;flex:1}
+.status{align-self:flex-start;font-size:13px;font-weight:700;color:var(--blue-d);background:var(--blue-l);padding:3px 12px;border-radius:50px;margin-bottom:12px}
+.proj h4{margin:0 0 10px;font-size:17px;line-height:1.45;color:var(--head)}
+.proj p{margin:0 0 16px;font-size:15px;color:var(--mute);flex:1}
+.proj p strong{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.chips span{font-size:13px;background:#f1f5f9;color:var(--ink);border-radius:6px;padding:2px 9px}
+.more{font-weight:700;text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.note{font-size:13px;color:var(--mute)}
+.more{font-weight:700;color:var(--blue-d);text-decoration:none}
+.more:hover{text-decoration:underline}.more:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.viewer{position:fixed;inset:0;z-index:50;background:rgba(15,23,42,.82);display:none;flex-direction:column}
+.viewer.open{display:flex}
+.vbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px max(3vw,14px);background:#fff;border-bottom:1px solid var(--line)}
+.vbar b{color:var(--head);font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vclose{min-height:44px;padding:0 18px;border:0;border-radius:8px;background:var(--blue);color:#fff;font:inherit;font-weight:700;cursor:pointer;flex:none}
+.vpages{overflow:auto;padding:20px max(3vw,10px);display:flex;flex-direction:column;align-items:center;gap:18px}
+.vpages img{width:min(100%,900px);height:auto;background:#fff;border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.vpages.poster img{width:min(100%,1100px)}
+
+.timeline{list-style:none;margin:0;padding:0;max-width:880px}
+.timeline li{display:grid;grid-template-columns:130px minmax(0,1fr);gap:22px;align-items:start;padding:16px 0;border-bottom:1px solid var(--line)}
+.tdate{background:#1e3a5f;color:#fff;font-weight:600;font-size:14px;border-radius:10px;padding:4px 10px;text-align:center;white-space:nowrap}
+.tt{font-weight:700;color:var(--head)}
+.td{color:var(--mute);font-size:15px}
+.contact{display:flex;flex-wrap:wrap;gap:16px}
+.contact div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 22px;font-size:17px}
+.contact b{color:var(--blue-d);margin-right:10px}
+footer{background:#f1f5f9;color:var(--mute);text-align:center;padding:28px 18px;font-size:14px;border-top:1px solid var(--line)}
+@media (max-width:980px){.courses{grid-template-columns:repeat(2,minmax(0,1fr))}.projects{grid-template-columns:minmax(0,1fr)}.proj .img{height:220px}}
+@media (max-width:760px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.photo{grid-row:1;width:min(70%,240px)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.courses{grid-template-columns:minmax(0,1fr)}.timeline li{grid-template-columns:minmax(0,1fr);gap:6px}.tdate{justify-self:start}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top">Cheng-Yu Wu</a>
+  <div class="links"><a href="#about">About</a><a href="#academics">Academics</a><a href="#research">Research</a><a href="#experience">Experience</a></div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <div class="badge">IEEE QCE 2026 Author</div>
+    <div class="school">國立屏東大學 資訊工程學系</div>
+    <h1>吳承祐<span>Cheng-Yu Wu</span></h1>
+    <p class="subtitle">Undergraduate Researcher in <strong>Quantum &amp; Combinatorial Optimization</strong></p>
+    <div class="btns">
+      <a class="btn primary" href="#research">View Publications</a>
+      <a class="btn outline" href="#contact">Email Me</a>
+    </div>
+  </div>
+  <div class="photo"><img src="photo.jpg" alt="吳承祐"></div>
+</div></header>
+
+<section id="about"><div class="wrap">
+  <h2><small>About Me</small>關於我</h2>
+  <div class="about">
+    <p>我是國立屏東大學資訊工程學系的大四學生。大學期間，我同時投入課業與研究，這段經歷培養了我的自律與抗壓性，也讓我習慣在遇到問題時主動找方法、持續調整。</p>
+    <p>我專注於將<strong>量子計算應用於組合最佳化問題</strong>。在專題研究中，我把台灣能源調度的發電配置建構成 <strong>QUBO 模型</strong>，比較多種量子與古典求解器，成果獲 <strong>AQC 2026</strong> 接受，並赴日本東京發表；延伸提出的可靠度評估方法，則獲 <strong>IEEE QCE 2026</strong> 研討會的工作坊接受，我是唯一的學生作者。此外，我也參與馬偕醫院的產學合作，運用 QUBO 特徵選擇協助心臟衰竭死亡預測。</p>
+    <p>未來在碩士班，我希望繼續研究<strong>資源配置與決策</strong>問題，結合最佳化與機器學習，解決更多實際場景中的問題。</p>
+  </div>
+</div></section>
+
+<section id="academics" style="background:#fff;border-block:1px solid var(--line)"><div class="wrap">
+  <h2><small>Academics</small>在校成績</h2>
+  <div class="stats">
+    <div class="stat"><div class="n">10 / 83</div><div class="l">系排・12.05%</div></div>
+    <div class="stat"><div class="n">7 / 41</div><div class="l">班排・17.07%</div></div>
+    <div class="stat"><div class="n">88.96</div><div class="l">學業平均</div></div>
+    <div class="stat"><div class="n">5th・4th</div><div class="l">大三上、下班排</div></div>
+  </div>
+  <h3>Core Coursework 核心課程</h3>
+  <div class="courses" id="courses"></div>
+</div></section>
+
+<section id="research"><div class="wrap">
+  <h2><small>Featured Research</small>研究成果</h2>
+  <div class="projects">
+    <article class="proj">
+      <div class="img" style="background-image:url(qce_fig.jpg);background-size:contain;background-color:#fff"></div>
+      <div class="body">
+        <div class="status">IEEE QCE 2026・Accepted</div>
+        <h4>Beyond Best Samples: Reliability-Aware QUBO Benchmarking for Policy-Constrained Energy Dispatch</h4>
+        <p>專題完成後的延伸研究。在 311 個變數的案例比較 GPU 退火、Fujitsu 數位退火與傳統啟發式方法，並在 24 個變數的案例比較 D-Wave 量子退火與 QAOA，發現只看單次最佳解會高估不穩定的方法，因此提出<strong>把可行率納入評估的基準</strong>。我是唯一的學生作者。</p>
+        <div class="chips"><span>QUBO</span><span>D-Wave</span><span>Fujitsu DA3</span><span>CGA</span><span>QAOA</span></div>
+        <a class="more" href="papers/qce2026.pdf" target="_blank" rel="noopener">閱讀論文全文 →</a>
+      </div>
+    </article>
+    <article class="proj">
+      <div class="img" style="background-image:url(poster_thumb.jpg)"></div>
+      <div class="body">
+        <div class="status">AQC 2026・Poster, Tokyo</div>
+        <h4>QUBO-Based Multi-Objective Energy Dispatch Optimization for Taiwan’s Power System</h4>
+        <p>實務專題。把台灣年度發電配置建構成多目標 QUBO 模型，在成本、碳排與供電穩定之間求解，並提出 <strong>Bounded-Slack 機制</strong>放寬供需限制；比較 GPU 退火、模擬退火、SQA 與 QAOA 等方法，於日本東京發表。</p>
+        <div class="chips"><span>QUBO</span><span>PyQUBO</span><span>CGA</span><span>SA / SQA</span><span>Qiskit QAOA</span></div>
+        <a class="more" href="papers/aqc2026-poster.pdf" target="_blank" rel="noopener">查看海報 →</a>
+      </div>
+    </article>
+    <article class="proj">
+      <div class="img blank">Q-HeartHF</div>
+      <div class="body">
+        <div class="status">產學合作・參與</div>
+        <h4>Q-HeartHF：心臟衰竭死亡風險預測</h4>
+        <p>參與與馬偕醫院的產學合作，以 QUBO 特徵選擇結合 XGBoost 建立預測模型，我負責<strong>特徵選擇自動化</strong>。團隊結果將特徵由 58 個減為 26 個，AUC 沒有下降。此研究參加數位發展部數位產業署 AI 新銳選拔，團隊通過初選。</p>
+        <div class="chips"><span>XGBoost</span><span>SHAP</span><span>QUBO 特徵選擇</span></div>
+        <span class="note">醫院合作案，資料不公開</span>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+<section id="experience" style="background:#fff;border-block:1px solid var(--line)"><div class="wrap">
+  <h2><small>Experience &amp; Honors</small>經歷</h2>
+  <ul class="timeline" id="timeline"></ul>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2><small>Contact Me</small>聯絡我</h2>
+  <div class="contact">
+    <div><b>Email</b><a href="mailto:10604ccps01301@gmail.com">10604ccps01301@gmail.com</a></div>
+    <div><b>手機</b>0972-416-962</div>
+  </div>
+</div></section>
+
+<footer>© 2026 Cheng-Yu Wu 吳承祐</footer>
+
+<script>
+{
+  const courses=[
+    ['機率與統計','Probability and Statistics',100],
+    ['系統程式','System Programming',100],
+    ['演算法','Algorithms',98],
+    ['人工智慧導論','Introduction to Artificial Intelligence',97],
+    ['資料庫系統導論','Introduction to Database Systems',96],
+    ['物件導向程式設計','Object-Oriented Programming',96],
+    ['作業系統','Operating Systems',95],
+    ['離散數學','Discrete Mathematics',94]
+  ];
+  document.getElementById('courses').innerHTML=courses.map(([zh,en,s])=>`<div class="course"><div><div class="zh">${zh}</div><div class="en">${en}</div></div><div class="s">${s}<small>/ 100</small></div></div>`).join('');
+  const tl=[
+    ['2026','國立中山大學資訊工程學系碩士班甲組 甄試正取','116 學年度'],
+    ['2026','IEEE QCE 2026 論文接受','QuBench Workshop，唯一學生作者'],
+    ['2026','AQC 2026 海報發表','日本東京'],
+    ['2026','AI 新銳選拔 Q-HeartHF 團隊通過初選','數位發展部數位產業署；我於初選後加入，參與後續開發與驗證'],
+    ['研究助理','國科會「以量子退火驅動之智慧長照設施選址與資源配置最佳化」',''],
+    ['研究助理','馬偕醫院產學合作「量子退火最佳化機器學習演算法研究案」','負責特徵選擇自動化'],
+    ['課程專案','ezCAD 2D 室內設計系統','以 Java Swing 開發，負責家具與門窗等物件模組'],
+    ['證照','TOEIC 多益 770、Google Cybersecurity Professional Certificate','']
+  ];
+  document.getElementById('timeline').innerHTML=tl.map(([y,t,d])=>`<li><div class="tdate">${y}</div><div><div class="tt">${t}</div>${d?`<div class="td">${d}</div>`:''}</div></li>`).join('');
+}
+</script>
+</body>
+</html>
