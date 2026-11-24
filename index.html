@@ -10,6 +10,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#0f172a">
 <title>吳承祐 Cheng-Yu Wu</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -31,7 +32,7 @@ a{color:var(--blue-d)}
 section{padding:clamp(56px,8vw,96px) max(5vw,18px)}
 nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .2s}
 nav.scrolled{box-shadow:0 6px 20px -12px rgba(15,23,42,.25)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px max(5vw,18px);min-height:76px}
+nav .wrap{max-width:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px max(3vw,18px);min-height:76px}
 .logo{display:flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--head);flex:none}
 .logo b{font-weight:900;font-size:25px;letter-spacing:1px}
 .logo span{font-weight:500;font-size:15px;color:var(--mute)}
@@ -182,6 +183,21 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
 .timeline li:hover{background:#f8fbff}
 .totop{transition:opacity .2s,transform .2s}.totop:hover{transform:translateY(-3px)}
 @media (prefers-reduced-motion:reduce){.blob{animation:none}.hero .seq,.photo.seq{animation:none;opacity:1;transform:none}.reveal{opacity:1;transform:none;transition:none}.stat:hover,.course:hover,.proj:hover,.proj:hover .img{transform:none}.btn.primary::after,.cbtn.solid::after{display:none}}
+
+/* ===== icons ===== */
+.fa-solid,.fa-brands{line-height:1}
+.badge i,.status i{margin-right:4px}
+.school i{margin-right:6px;font-size:.9em}
+.aicon{flex:none;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--blue-l);color:var(--blue-d);font-size:18px}
+h2 small i{margin-right:6px}
+.sicon{width:42px;height:42px;margin:0 auto 8px;border-radius:12px;display:grid;place-items:center;background:var(--blue-l);color:var(--blue-d);font-size:18px}
+.course .ci{display:inline-grid;place-items:center;width:30px;height:30px;margin-right:9px;border-radius:8px;background:var(--blue-l);color:var(--blue-d);font-size:14px;vertical-align:-6px}
+.course:hover .ci{background:var(--blue);color:#fff}
+.transcript-btn i,.more i{font-size:1.05em}
+.proj .img.blank{flex-direction:column;gap:10px}
+.timeline .ti{display:inline-grid;place-items:center;width:26px;height:26px;margin-right:8px;border-radius:7px;background:var(--blue-l);color:var(--blue-d);font-size:12px;vertical-align:-5px}
+.cicon i{font-size:20px}
+footer h5 i{color:#60a5fa;margin-right:6px}
 </style>
 </head>
 <body>
@@ -193,21 +209,21 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
 
 <header class="hero" id="top"><span class="blob b1"></span><span class="blob b2"></span><div class="wrap">
   <div>
-    <div class="badges seq" style="animation-delay:0s"><span class="badge">IEEE QCE 2026 Author</span><span class="badge alt">AQC 2026 Poster・Tokyo</span></div>
-    <div class="school seq" style="animation-delay:0.08s">國立屏東大學 資訊工程學系</div>
+    <div class="badges seq" style="animation-delay:0s"><span class="badge"><i class="fa-solid fa-trophy" aria-hidden="true"></i> IEEE QCE 2026 Author</span><span class="badge alt"><i class="fa-solid fa-scroll" aria-hidden="true"></i> AQC 2026 Poster・Tokyo</span></div>
+    <div class="school seq" style="animation-delay:0.08s"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> 國立屏東大學 資訊工程學系</div>
     <h1 class="seq" style="animation-delay:0.16s">吳承祐<span>Cheng-Yu Wu</span></h1>
     <p class="subtitle seq" style="animation-delay:0.26s">Undergraduate Researcher in <strong>Quantum &amp; Combinatorial Optimization</strong></p>
-    <div class="admit seq" style="animation-delay:0.36s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg><span><small>116 學年度碩士班甄試</small><b>正取 國立中山大學 資訊工程學系 碩士班甲組</b></span></div>
+    <div class="admit seq" style="animation-delay:0.36s"><span class="aicon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span><span><small>116 學年度碩士班甄試</small><b>正取 國立中山大學 資訊工程學系 碩士班甲組</b></span></div>
     <div class="btns seq" style="animation-delay:0.46s">
-      <a class="btn primary" href="#research">View Publications</a>
-      <a class="btn outline" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=10604ccps01301@gmail.com" target="_blank" rel="noopener">Email Me</a>
+      <a class="btn primary" href="#research"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i>&nbsp;View Publications</a>
+      <a class="btn outline" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=10604ccps01301@gmail.com" target="_blank" rel="noopener"><i class="fa-solid fa-envelope" aria-hidden="true"></i>&nbsp;Email Me</a>
     </div>
   </div>
   <div class="photo seq" id="photo"><img src="photo.jpg" alt="吳承祐"></div>
 </div></header>
 
 <section id="about"><div class="wrap">
-  <h2><small>About Me</small>關於我</h2>
+  <h2><small><i class="fa-solid fa-user" aria-hidden="true"></i> About Me</small>關於我</h2>
   <div class="about">
     <p>我是國立屏東大學資訊工程學系的大四學生。大學期間，我同時投入課業與研究，這段經歷培養了我的自律與抗壓性，也讓我習慣在遇到問題時主動找方法、持續調整。</p>
     <p>我專注於將<strong>量子計算應用於組合最佳化問題</strong>。在專題研究中，我把台灣能源調度的發電配置建構成 <strong>QUBO 模型</strong>，比較多種量子與古典求解器，成果獲 <strong>AQC 2026</strong> 接受，並赴日本東京發表；延伸提出的可靠度評估方法，則獲 <strong>IEEE QCE 2026</strong> 研討會的工作坊接受，我是唯一的學生作者。此外，我也參與馬偕醫院的產學合作，運用 QUBO 特徵選擇協助心臟衰竭死亡預測。</p>
@@ -216,46 +232,46 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
 </div></section>
 
 <section id="academics" style="background:#fff;border-block:1px solid var(--line)"><div class="wrap">
-  <h2><small>Academics</small>在校成績</h2>
+  <h2><small><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Academics</small>在校成績</h2>
   <div class="stats">
-    <div class="stat"><div class="n"><span data-to="10">10</span> / 83</div><div class="l">系排・12.05%</div></div>
-    <div class="stat"><div class="n"><span data-to="7">7</span> / 41</div><div class="l">班排・17.07%</div></div>
-    <div class="stat"><div class="n"><span data-to="88.96" data-dec="2">88.96</span></div><div class="l">學業平均</div></div>
-    <div class="stat"><div class="n">5th・4th</div><div class="l">大三上、下班排</div></div>
+    <div class="stat"><div class="sicon"><i class="fa-solid fa-ranking-star" aria-hidden="true"></i></div><div class="n"><span data-to="10">10</span> / 83</div><div class="l">系排・12.05%</div></div>
+    <div class="stat"><div class="sicon"><i class="fa-solid fa-users" aria-hidden="true"></i></div><div class="n"><span data-to="7">7</span> / 41</div><div class="l">班排・17.07%</div></div>
+    <div class="stat"><div class="sicon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div><div class="n"><span data-to="88.96" data-dec="2">88.96</span></div><div class="l">學業平均</div></div>
+    <div class="stat"><div class="sicon"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i></div><div class="n">5th・4th</div><div class="l">大三上、下班排</div></div>
   </div>
   <h3>Core Coursework 核心課程</h3>
   <div class="courses" id="courses"></div>
-  <a class="transcript-btn" href="papers/transcript.pdf" target="_blank" rel="noopener">查看完整成績單與名次證明 →</a>
+  <a class="transcript-btn" href="papers/transcript.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> 查看完整成績單與名次證明</a>
   <div class="transcript-note">含大學歷年成績單、系所排名與班級排名證明</div>
 </div></section>
 
 <section id="research"><div class="wrap">
-  <h2><small>Featured Research</small>研究成果</h2>
+  <h2><small><i class="fa-solid fa-flask" aria-hidden="true"></i> Featured Research</small>研究成果</h2>
   <div class="projects">
     <article class="proj">
       <div class="img" style="background-image:url(qce_fig.jpg);background-size:contain;background-color:#fff"></div>
       <div class="body">
-        <div class="status">IEEE QCE 2026・Accepted</div>
+        <div class="status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> IEEE QCE 2026・Accepted</div>
         <h4>Beyond Best Samples: Reliability-Aware QUBO Benchmarking for Policy-Constrained Energy Dispatch</h4>
         <p>專題完成後的延伸研究。在 311 個變數的案例比較 GPU 退火、Fujitsu 數位退火與傳統啟發式方法，並在 24 個變數的案例比較 D-Wave 量子退火與 QAOA，發現只看單次最佳解會高估不穩定的方法，因此提出<strong>把可行率納入評估的基準</strong>。我是唯一的學生作者。</p>
         <div class="chips"><span>QUBO</span><span>D-Wave</span><span>Fujitsu DA3</span><span>CGA</span><span>QAOA</span></div>
-        <a class="more" href="papers/qce2026.pdf" target="_blank" rel="noopener">閱讀論文全文 →</a>
+        <a class="more" href="papers/qce2026.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i>&nbsp;閱讀論文全文</a>
       </div>
     </article>
     <article class="proj">
       <div class="img" style="background-image:url(poster_thumb.jpg)"></div>
       <div class="body">
-        <div class="status">AQC 2026・Poster, Tokyo</div>
+        <div class="status"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> AQC 2026・Poster, Tokyo</div>
         <h4>QUBO-Based Multi-Objective Energy Dispatch Optimization for Taiwan’s Power System</h4>
         <p>實務專題。把台灣年度發電配置建構成多目標 QUBO 模型，在成本、碳排與供電穩定之間求解，並提出 <strong>Bounded-Slack 機制</strong>放寬供需限制；比較 GPU 退火、模擬退火、SQA 與 QAOA 等方法，於日本東京發表。</p>
         <div class="chips"><span>QUBO</span><span>PyQUBO</span><span>CGA</span><span>SA / SQA</span><span>Qiskit QAOA</span></div>
-        <a class="more" href="papers/aqc2026-poster.pdf" target="_blank" rel="noopener">查看海報 →</a>
+        <a class="more" href="papers/aqc2026-poster.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-image" aria-hidden="true"></i>&nbsp;查看海報</a>
       </div>
     </article>
     <article class="proj">
-      <div class="img blank">Q-HeartHF</div>
+      <div class="img blank"><i class="fa-solid fa-heart-pulse fa-2x" aria-hidden="true"></i><span>Q-HeartHF</span></div>
       <div class="body">
-        <div class="status">產學合作・參與</div>
+        <div class="status"><i class="fa-solid fa-handshake" aria-hidden="true"></i> 產學合作・參與</div>
         <h4>Q-HeartHF：心臟衰竭死亡風險預測</h4>
         <p>參與與馬偕醫院的產學合作，以 QUBO 特徵選擇結合 XGBoost 建立預測模型，我負責<strong>特徵選擇自動化</strong>。團隊結果將特徵由 58 個減為 26 個，AUC 沒有下降。此研究參加數位發展部數位產業署 AI 新銳選拔，團隊通過初選。</p>
         <div class="chips"><span>XGBoost</span><span>SHAP</span><span>QUBO 特徵選擇</span></div>
@@ -266,12 +282,12 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
 </div></section>
 
 <section id="experience" style="background:#fff;border-block:1px solid var(--line)"><div class="wrap">
-  <h2><small>Experience &amp; Honors</small>經歷</h2>
+  <h2><small><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Experience &amp; Honors</small>經歷</h2>
   <ul class="timeline" id="timeline"></ul>
 </div></section>
 
 <section id="contact"><div class="wrap">
-  <h2><small>Contact Me</small>聯絡我</h2>
+  <h2><small><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact Me</small>聯絡我</h2>
   <div class="cpanel">
     <div class="cintro">
       <h3>歡迎與我聯絡</h3>
@@ -283,11 +299,11 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
       </div>
     </div>
     <div class="ccards">
-      <a class="ccard" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=10604ccps01301@gmail.com" target="_blank" rel="noopener"><span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>Email</small><b>10604ccps01301@gmail.com</b></span></a>
-      <div class="ccard"><span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span><span><small>就讀學校</small><b>國立屏東大學 資訊工程學系 四年級</b></span></div>
-      <div class="ccard"><span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span><span><small>碩士班</small><b>正取 國立中山大學 資訊工程學系 碩士班甲組</b></span></div>
-      <div class="ccard"><span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></span><span><small>研究興趣</small><b>資源配置與決策、最佳化、機器學習</b></span></div>
-      <a class="ccard" href="papers/transcript.pdf" target="_blank" rel="noopener"><span class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><span><small>文件</small><b>成績單與名次證明</b></span></a>
+      <a class="ccard" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=10604ccps01301@gmail.com" target="_blank" rel="noopener"><span class="cicon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span><span><small>Email</small><b>10604ccps01301@gmail.com</b></span></a>
+      <div class="ccard"><span class="cicon"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></span><span><small>就讀學校</small><b>國立屏東大學 資訊工程學系 四年級</b></span></div>
+      <div class="ccard"><span class="cicon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span><span><small>碩士班</small><b>正取 國立中山大學 資訊工程學系 碩士班甲組</b></span></div>
+      <div class="ccard"><span class="cicon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span><span><small>研究興趣</small><b>資源配置與決策、最佳化、機器學習</b></span></div>
+      <a class="ccard" href="papers/transcript.pdf" target="_blank" rel="noopener"><span class="cicon"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></span><span><small>文件</small><b>成績單與名次證明</b></span></a>
     </div>
   </div>
 </div></section>
@@ -299,11 +315,11 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
       <p>國立屏東大學 資訊工程學系<br>Quantum &amp; Combinatorial Optimization</p>
     </div>
     <div>
-      <h5>快速連結</h5>
+      <h5><i class="fa-solid fa-link" aria-hidden="true"></i> 快速連結</h5>
       <ul><li><a href="#about">關於我</a></li><li><a href="#academics">在校成績</a></li><li><a href="#research">研究成果</a></li><li><a href="#experience">經歷</a></li></ul>
     </div>
     <div>
-      <h5>聯絡與文件</h5>
+      <h5><i class="fa-solid fa-folder-open" aria-hidden="true"></i> 聯絡與文件</h5>
       <ul><li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=10604ccps01301@gmail.com" target="_blank" rel="noopener">10604ccps01301@gmail.com</a></li><li><a href="papers/qce2026.pdf" target="_blank" rel="noopener">IEEE QCE 2026 論文</a></li><li><a href="papers/aqc2026-poster.pdf" target="_blank" rel="noopener">AQC 2026 海報</a></li><li><a href="papers/transcript.pdf" target="_blank" rel="noopener">成績單與名次證明</a></li></ul>
     </div>
   </div>
@@ -314,27 +330,27 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
 <script>
 {
   const courses=[
-    ['機率與統計','Probability and Statistics',100],
-    ['系統程式','System Programming',100],
-    ['演算法','Algorithms',98],
-    ['人工智慧導論','Introduction to Artificial Intelligence',97],
-    ['資料庫系統導論','Introduction to Database Systems',96],
-    ['物件導向程式設計','Object-Oriented Programming',96],
-    ['作業系統','Operating Systems',95],
-    ['離散數學','Discrete Mathematics',94]
+    ['機率與統計','Probability and Statistics',100,'fa-chart-simple'],
+    ['系統程式','System Programming',100,'fa-terminal'],
+    ['演算法','Algorithms',98,'fa-code-branch'],
+    ['人工智慧導論','Introduction to Artificial Intelligence',97,'fa-brain'],
+    ['資料庫系統導論','Introduction to Database Systems',96,'fa-database'],
+    ['物件導向程式設計','Object-Oriented Programming',96,'fa-cubes'],
+    ['作業系統','Operating Systems',95,'fa-microchip'],
+    ['離散數學','Discrete Mathematics',94,'fa-diagram-project']
   ];
-  document.getElementById('courses').innerHTML=courses.map(([zh,en,s])=>`<div class="course"><div><div class="zh">${zh}</div><div class="en">${en}</div></div><div class="s"><span data-to="${s}">${s}</span><small>/ 100</small></div></div>`).join('');
+  document.getElementById('courses').innerHTML=courses.map(([zh,en,s,ic])=>`<div class="course"><div><div class="zh"><i class="fa-solid ${ic} ci" aria-hidden="true"></i>${zh}</div><div class="en">${en}</div></div><div class="s"><span data-to="${s}">${s}</span><small>/ 100</small></div></div>`).join('');
   const tl=[
-    ['2026','國立中山大學資訊工程學系碩士班甲組 甄試正取','116 學年度'],
-    ['2026','IEEE QCE 2026 論文接受','QuBench Workshop，唯一學生作者'],
-    ['2026','AQC 2026 海報發表','日本東京'],
-    ['2026','AI 新銳選拔 Q-HeartHF 團隊通過初選','數位發展部數位產業署；我於初選後加入，參與後續開發與驗證'],
-    ['研究助理','國科會「以量子退火驅動之智慧長照設施選址與資源配置最佳化」',''],
-    ['研究助理','馬偕醫院產學合作「量子退火最佳化機器學習演算法研究案」','負責特徵選擇自動化'],
-    ['課程專案','ezCAD 2D 室內設計系統','以 Java Swing 開發，負責家具與門窗等物件模組'],
-    ['證照','TOEIC 多益 770、Google Cybersecurity Professional Certificate','']
+    ['2026','國立中山大學資訊工程學系碩士班甲組 甄試正取','116 學年度','fa-graduation-cap'],
+    ['2026','IEEE QCE 2026 論文接受','QuBench Workshop，唯一學生作者','fa-file-lines'],
+    ['2026','AQC 2026 海報發表','日本東京','fa-image'],
+    ['2026','AI 新銳選拔 Q-HeartHF 團隊通過初選','數位發展部數位產業署；我於初選後加入，參與後續開發與驗證','fa-award'],
+    ['研究助理','國科會「以量子退火驅動之智慧長照設施選址與資源配置最佳化」','','fa-building-columns'],
+    ['研究助理','馬偕醫院產學合作「量子退火最佳化機器學習演算法研究案」','負責特徵選擇自動化','fa-hospital'],
+    ['課程專案','ezCAD 2D 室內設計系統','以 Java Swing 開發，負責家具與門窗等物件模組','fa-code'],
+    ['證照','TOEIC 多益 770、Google Cybersecurity Professional Certificate','','fa-certificate']
   ];
-  document.getElementById('timeline').innerHTML=tl.map(([y,t,d])=>`<li><div class="tdate">${y}</div><div><div class="tt">${t}</div>${d?`<div class="td">${d}</div>`:''}</div></li>`).join('');
+  document.getElementById('timeline').innerHTML=tl.map(([y,t,d,ic])=>`<li><div class="tdate">${y}</div><div><div class="tt"><i class="fa-solid ${ic} ti" aria-hidden="true"></i>${t}</div>${d?`<div class="td">${d}</div>`:''}</div></li>`).join('');
   const nav=document.getElementById('nav'),tt=document.getElementById('totop');
   const onScroll=()=>{const y=window.scrollY;nav.classList.toggle('scrolled',y>8);tt.classList.toggle('show',y>600)};
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
