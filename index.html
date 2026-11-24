@@ -176,7 +176,9 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
 .links a{position:relative}
 .links a:not(.cta)::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;border-radius:2px;background:var(--blue);transform:scaleX(0);transition:transform .25s}
 .links a:not(.cta):hover::after,.links a.active::after{transform:scaleX(1)}
-.timeline li{transition:background .2s,opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.timeline li{transition:background .2s,opacity .4s cubic-bezier(.2,.7,.2,1),transform .4s cubic-bezier(.2,.7,.2,1)}
+.timeline li.reveal{transform:translateY(16px)}
+.timeline li.reveal.in{transform:none}
 .timeline li:hover{background:#f8fbff}
 .totop{transition:opacity .2s,transform .2s}.totop:hover{transform:translateY(-3px)}
 @media (prefers-reduced-motion:reduce){.blob{animation:none}.hero .seq,.photo.seq{animation:none;opacity:1;transform:none}.reveal{opacity:1;transform:none;transition:none}.stat:hover,.course:hover,.proj:hover,.proj:hover .img{transform:none}.btn.primary::after,.cbtn.solid::after{display:none}}
@@ -348,7 +350,7 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
   window.addEventListener('scroll',onProg,{passive:true});onProg();
   const groups=[['section h2'],['.about'],['.stat'],['.course'],['.transcript-btn','.transcript-note'],['.proj'],['.timeline li'],['.cpanel'],['footer .wrap > div']];
   if(!RM){
-    groups.forEach(sel=>{sel.forEach(q=>document.querySelectorAll(q).forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=Math.min(i,8)*70+'ms'}))});
+    groups.forEach(sel=>{sel.forEach(q=>document.querySelectorAll(q).forEach((el,i)=>{el.classList.add('reveal');const step=q==='.timeline li'?30:70;el.style.transitionDelay=Math.min(i,8)*step+'ms'}))});
     const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target);setTimeout(()=>{e.target.style.transitionDelay=''},1200)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
     document.querySelectorAll('.reveal').forEach(el=>rio.observe(el));
     const ease=t=>1-Math.pow(1-t,3);
