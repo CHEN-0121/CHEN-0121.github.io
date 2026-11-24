@@ -38,7 +38,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px
 .links a.cta{background:var(--blue);color:#fff;margin-left:8px;font-weight:700}
 .links a.cta:hover{background:var(--blue-d);color:#fff}
 @media (max-width:640px){.links{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}.logo span{display:none}.links a{padding:8px 9px;font-size:14px}.links a.cta{display:none}}
-.hero{background:radial-gradient(circle at 0% 0%,var(--hero1),var(--hero2) 70%);padding:clamp(48px,8vw,104px) max(5vw,18px);border-bottom:1px solid var(--line)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 0% 0%,var(--hero1),var(--hero2) 70%);padding:clamp(48px,8vw,104px) max(5vw,18px);border-bottom:1px solid var(--line)}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(28px,6vw,80px);align-items:center}
 .badge{display:inline-block;background:var(--blue);color:#fff;font-weight:700;font-size:14px;padding:6px 16px;border-radius:50px;box-shadow:0 0 18px rgba(59,130,246,.35);margin-bottom:20px}
 .admit{display:flex;align-items:center;gap:12px;margin-top:22px;padding:12px 16px;background:#fff;border:1px solid #dbe7fb;border-left:4px solid var(--blue);border-radius:12px;box-shadow:0 8px 20px -16px rgba(15,23,42,.35);max-width:560px}
@@ -141,27 +141,59 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
 @media (max-width:980px){.courses{grid-template-columns:repeat(2,minmax(0,1fr))}.projects{grid-template-columns:minmax(0,1fr)}.proj .img{height:220px}}
 @media (max-width:760px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.photo{grid-row:1;width:min(70%,240px)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.courses{grid-template-columns:minmax(0,1fr)}.timeline li{grid-template-columns:minmax(0,1fr);gap:6px}.tdate{justify-self:start}}
+
+/* ===== motion ===== */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#3b82f6,#60a5fa,#2563eb);z-index:30}
+.hero .wrap{position:relative;z-index:1}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;pointer-events:none;z-index:0}
+.blob.b1{width:420px;height:420px;background:#bfdbfe;top:-140px;right:8%;animation:float1 14s ease-in-out infinite}
+.blob.b2{width:320px;height:320px;background:#dbeafe;bottom:-160px;left:-80px;animation:float2 18s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,30px) scale(1.08)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(50px,-30px)}}
+.hero .seq{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.photo{perspective:900px}
+.photo img{transition:transform .25s ease-out,box-shadow .25s;will-change:transform}
+.photo.seq{animation:pop 1s cubic-bezier(.2,.7,.2,1) .25s forwards;transform:translateY(24px) scale(.96)}
+@keyframes pop{to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.stat,.course,.proj,.ccard,.about{transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color .25s,opacity .7s cubic-bezier(.2,.7,.2,1)}
+.stat:hover,.course:hover,.proj:hover{transform:translateY(-5px);box-shadow:0 18px 36px -18px rgba(37,99,235,.35);border-color:#bfd4f6}
+.proj .img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.proj{overflow:hidden}.proj:hover .img{transform:scale(1.04)}
+.btn.primary,.cbtn.solid{position:relative;overflow:hidden}
+.btn.primary::after,.cbtn.solid::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn.primary:hover::after,.cbtn.solid:hover::after{transform:translateX(120%)}
+.links a{position:relative}
+.links a:not(.cta)::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;border-radius:2px;background:var(--blue);transform:scaleX(0);transition:transform .25s}
+.links a:not(.cta):hover::after,.links a.active::after{transform:scaleX(1)}
+.timeline li{transition:background .2s,opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.timeline li:hover{background:#f8fbff}
+.totop{transition:opacity .2s,transform .2s}.totop:hover{transform:translateY(-3px)}
+@media (prefers-reduced-motion:reduce){.blob{animation:none}.hero .seq,.photo.seq{animation:none;opacity:1;transform:none}.reveal{opacity:1;transform:none;transition:none}.stat:hover,.course:hover,.proj:hover,.proj:hover .img{transform:none}.btn.primary::after,.cbtn.solid::after{display:none}}
 </style>
 </head>
 <body>
+<div class="progress" id="progress"></div>
 <nav id="nav"><div class="wrap">
   <a class="logo" href="#top"><b>吳承祐</b><span>Cheng-Yu Wu</span></a>
   <div class="links"><a href="#about">About</a><a href="#academics">Academics</a><a href="#research">Research</a><a href="#experience">Experience</a><a href="#contact">Contact</a><a class="cta" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=10604ccps01301@gmail.com" target="_blank" rel="noopener">Email Me</a></div>
 </div></nav>
 
-<header class="hero" id="top"><div class="wrap">
+<header class="hero" id="top"><span class="blob b1"></span><span class="blob b2"></span><div class="wrap">
   <div>
-    <div class="badge">IEEE QCE 2026 Author</div>
-    <div class="school">國立屏東大學 資訊工程學系</div>
-    <h1>吳承祐<span>Cheng-Yu Wu</span></h1>
-    <p class="subtitle">Undergraduate Researcher in <strong>Quantum &amp; Combinatorial Optimization</strong></p>
-    <div class="admit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg><span><small>116 學年度碩士班甄試</small><b>正取 國立中山大學 資訊工程學系 碩士班甲組</b></span></div>
-    <div class="btns">
+    <div class="badge seq" style="animation-delay:0s">IEEE QCE 2026 Author</div>
+    <div class="school seq" style="animation-delay:0.08s">國立屏東大學 資訊工程學系</div>
+    <h1 class="seq" style="animation-delay:0.16s">吳承祐<span>Cheng-Yu Wu</span></h1>
+    <p class="subtitle seq" style="animation-delay:0.26s">Undergraduate Researcher in <strong>Quantum &amp; Combinatorial Optimization</strong></p>
+    <div class="admit seq" style="animation-delay:0.36s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg><span><small>116 學年度碩士班甄試</small><b>正取 國立中山大學 資訊工程學系 碩士班甲組</b></span></div>
+    <div class="btns seq" style="animation-delay:0.46s">
       <a class="btn primary" href="#research">View Publications</a>
       <a class="btn outline" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=10604ccps01301@gmail.com" target="_blank" rel="noopener">Email Me</a>
     </div>
   </div>
-  <div class="photo"><img src="photo.jpg" alt="吳承祐"></div>
+  <div class="photo seq" id="photo"><img src="photo.jpg" alt="吳承祐"></div>
 </div></header>
 
 <section id="about"><div class="wrap">
@@ -176,9 +208,9 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
 <section id="academics" style="background:#fff;border-block:1px solid var(--line)"><div class="wrap">
   <h2><small>Academics</small>在校成績</h2>
   <div class="stats">
-    <div class="stat"><div class="n">10 / 83</div><div class="l">系排・12.05%</div></div>
-    <div class="stat"><div class="n">7 / 41</div><div class="l">班排・17.07%</div></div>
-    <div class="stat"><div class="n">88.96</div><div class="l">學業平均</div></div>
+    <div class="stat"><div class="n"><span data-to="10">10</span> / 83</div><div class="l">系排・12.05%</div></div>
+    <div class="stat"><div class="n"><span data-to="7">7</span> / 41</div><div class="l">班排・17.07%</div></div>
+    <div class="stat"><div class="n"><span data-to="88.96" data-dec="2">88.96</span></div><div class="l">學業平均</div></div>
     <div class="stat"><div class="n">5th・4th</div><div class="l">大三上、下班排</div></div>
   </div>
   <h3>Core Coursework 核心課程</h3>
@@ -281,7 +313,7 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
     ['作業系統','Operating Systems',95],
     ['離散數學','Discrete Mathematics',94]
   ];
-  document.getElementById('courses').innerHTML=courses.map(([zh,en,s])=>`<div class="course"><div><div class="zh">${zh}</div><div class="en">${en}</div></div><div class="s">${s}<small>/ 100</small></div></div>`).join('');
+  document.getElementById('courses').innerHTML=courses.map(([zh,en,s])=>`<div class="course"><div><div class="zh">${zh}</div><div class="en">${en}</div></div><div class="s"><span data-to="${s}">${s}</span><small>/ 100</small></div></div>`).join('');
   const tl=[
     ['2026','國立中山大學資訊工程學系碩士班甲組 甄試正取','116 學年度'],
     ['2026','IEEE QCE 2026 論文接受','QuBench Workshop，唯一學生作者'],
@@ -302,6 +334,25 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline}
   ['about','academics','research','experience','contact'].forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el)});
   const cb=document.getElementById('copyMail'),cp=document.getElementById('copied');
   cb.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('10604ccps01301@gmail.com');cp.textContent='已複製'}catch(e){cp.textContent='10604ccps01301@gmail.com'}setTimeout(()=>cp.textContent='',2500)});
+  const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prog=document.getElementById('progress');
+  const onProg=()=>{const h=document.documentElement;const r=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.transform='scaleX('+Math.min(1,Math.max(0,r))+')'};
+  window.addEventListener('scroll',onProg,{passive:true});onProg();
+  const groups=[['section h2'],['.about'],['.stat'],['.course'],['.transcript-btn','.transcript-note'],['.proj'],['.timeline li'],['.cpanel'],['footer .wrap > div']];
+  if(!RM){
+    groups.forEach(sel=>{sel.forEach(q=>document.querySelectorAll(q).forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=Math.min(i,8)*70+'ms'}))});
+    const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target);setTimeout(()=>{e.target.style.transitionDelay=''},1200)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>rio.observe(el));
+    const ease=t=>1-Math.pow(1-t,3);
+    const count=el=>{const to=parseFloat(el.dataset.to),dec=+(el.dataset.dec||0),dur=1200,t0=performance.now();const step=now=>{const k=Math.min(1,(now-t0)/dur);el.textContent=(to*ease(k)).toFixed(dec);if(k<1)requestAnimationFrame(step)};el.textContent=(0).toFixed(dec);requestAnimationFrame(step)};
+    const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){count(e.target);cio.unobserve(e.target)}}),{threshold:.6});
+    document.querySelectorAll('[data-to]').forEach(el=>cio.observe(el));
+    const ph=document.getElementById('photo'),img=ph&&ph.querySelector('img');
+    if(img&&matchMedia('(hover:hover)').matches){
+      ph.addEventListener('pointermove',e=>{const r=ph.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;img.style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg) scale(1.02)`;img.style.boxShadow=`${-x*30}px ${30-y*20}px 60px -12px rgba(15,23,42,.32)`});
+      ph.addEventListener('pointerleave',()=>{img.style.transform='';img.style.boxShadow=''});
+    }
+  }
 }
 </script>
 </body>
